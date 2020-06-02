@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 //api info
 import { singleBeer } from './../../services/beersApi';
@@ -6,22 +6,39 @@ import { singleBeer } from './../../services/beersApi';
 import Header from './../../components/Header';
 import FullInfoBeer from './../../components/FullInfoBeer';
 
-const SingleBeer = (props) => {
-  const beerId = props.match.params.id;
-  let oneBeer = {};
- 
-  singleBeer(beerId).then((beer) => oneBeer = Object.entries(beer)).catch((error) => console.log(error));
+class SingleBeer extends Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      beer: {}
+    }
+  }
+
+  componentDidMount() {
+    this.fetchData();
+  }
+
+  fetchData() {
+    const id = this.props.match.params.id;
+    singleBeer(id)
+    .then((beer) => {
+      this.setState({
+        beer
+      })
+    })
+    .catch(error => console.log(error))
+  }
 
 
-
-  console.log(oneBeer)
-  
-  return (
-    <div>
-      <Header />
-              
-    </div>
-  );
+  render () {
+    const beer = this.state.beer;
+    return (
+      <div>
+        <Header />
+        <FullInfoBeer beer={beer} />        
+      </div>
+    );
+  }
 
 }
 

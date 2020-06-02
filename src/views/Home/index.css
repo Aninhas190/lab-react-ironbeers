@@ -1,10 +1,13 @@
 .home > img {
   width: 100vw;
+  margin: 0;
 }
 
 .home {
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
 }
