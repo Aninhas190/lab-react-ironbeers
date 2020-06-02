@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-
+//api info
+import { beerList } from './../../services/beersApi';
+//components
 import Header from './../../components/Header';
-
-import beerList from './../../services/beersApi';
-
 import SingleBeer from './../../components/SingleBeer';
 
 

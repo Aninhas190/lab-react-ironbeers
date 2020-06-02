@@ -23,7 +23,8 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/beers" exact component={ListBeers} />
-          <Route path="/:id" exact component={SingleBeer} />
+          <Route path="/beers/:id" exact component={SingleBeer} />
+          
           <Route path="/random" exact component={RandomBeer} />
           <Route path="/new" exact component={NewBeer} />
           {/* <Route path="/search?q={query}" exact component={ListBeers} /> */}
